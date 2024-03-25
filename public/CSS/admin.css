@@ -1,0 +1,29 @@
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}   
+.form-section{
+    display: flex;
+    justify-content: center;
+}
+.form-container{
+    border:2px solid gray;
+    text-align: center;
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 50% auto;
+}
+input{
+    font-size: 15px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    display: block;
+    margin: 10px;
+    border-radius: 24px;
+}
+button{
+    padding: 10x;
+    border-radius: 30px;
+}
