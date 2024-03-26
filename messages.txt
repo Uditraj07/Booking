@@ -1,4 +1,0 @@
-lucky: hii this is lucky
-udit: Hi lucky udit this side
-lucky: ok udit
-udit: ok lucky
