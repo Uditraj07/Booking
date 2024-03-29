@@ -12,7 +12,11 @@ const helpdeskController=require('../Controller/helpdeskController')
 const adminController=require('../Controller/adminController')
 
 router.get('/add-product',adminController.addProduct)
-router.post('/products',adminController.products)
+router.post('/products',adminController.AddProducts)
+
+router.get('/get-all-products',adminController.GetAllProduct)
+
+router.get('/get-product-byId/:id',adminController.getProductById)
 
 router.get('/contact-us',helpdeskController.getHelpMethod)
 
