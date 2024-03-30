@@ -13,17 +13,24 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const adminRouter=require('./routes/admin')
 
 const shopRouter=require('./routes/index')
+const userRouter=require('./routes/user')
 
 const rootPath=require('./ROOTPATH/rootpath')
+
+
 
 
 app.use('/admin',adminRouter)
 
 app.use('/index',shopRouter)
 
+app.use('/User',userRouter)
+
 app.use('/success',(req,res,next)=>{
     res.send("Form Created Successfully")
 })
+
+
 
 app.use((req,res,next)=>{
     res.sendFile(path.join(rootPath,'Views','404.html'))
