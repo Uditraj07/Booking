@@ -1,8 +1,4 @@
-const { rejects } = require('assert');
-const { json } = require('body-parser');
-const { error } = require('console');
-const fs=require('fs');
-const { resolve } = require('path');
+const db=require('../ROOTPATH/database');
 
 module.exports=class Products{
     constructor(Item,size){
@@ -11,29 +7,12 @@ module.exports=class Products{
     }
     save(){
         this.id=Math.round((Math.random()*10)).toString()
-        const storeObj=JSON.stringify(this);
-        fs.appendFile('message.txt',storeObj+'\n',(error)=>{
-            console.log(error)
-        })
+        return db.execute("insert into produt values(?,?,?)",[this.id,this.Item,this.size])
     }
     static fetchAll() {
-        return new Promise((resolve, reject) => {
-            fs.readFile('message.txt', 'utf8', (error, data) => {
-                if (error) {
-                    console.error('Error reading file:', error);
-                    reject(error);
-                }
-                const lines = data.split('\n').filter(line => line.trim() !== '');
-                const products = lines.map(line => JSON.parse(line));
-                console.log(products)
-                resolve(products);
-            });
-        });
+        return db.execute("select * from produt")
     }
-    static async getById(id){
-         let res=await Products.fetchAll();
-         let res1=res.find(pro => pro.id === id);
-         console.log(res1)
-         return JSON.stringify(res1);
+    static  getById(id){
+        return db.execute("select * from produt where produt.id=?",[id]);
     }
 }

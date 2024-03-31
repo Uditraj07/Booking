@@ -17,7 +17,7 @@ const userRouter=require('./routes/user')
 
 const rootPath=require('./ROOTPATH/rootpath')
 
-
+const pool=require('./ROOTPATH/database')
 
 
 app.use('/admin',adminRouter)
