@@ -17,7 +17,7 @@ const userRouter=require('./routes/user')
 
 const rootPath=require('./ROOTPATH/rootpath')
 
-const pool=require('./ROOTPATH/database')
+const sequelize=require('./ROOTPATH/database')
 
 
 app.use('/admin',adminRouter)
@@ -36,6 +36,6 @@ app.use((req,res,next)=>{
     res.sendFile(path.join(rootPath,'Views','404.html'))
 })
 
-
+sequelize.sync();
 
 app.listen(3000)
